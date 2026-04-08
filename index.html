@@ -1144,6 +1144,27 @@
       resize: vertical;
     }
 
+    .contact-form {
+      position: relative;
+    }
+    .form-success-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 30, 30, 0.92);
+      border-radius: 8px;
+      font-size: 1.125rem;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .form-success-overlay.visible {
+      opacity: 1;
+    }
+
     .contact-info {
       display: flex;
       flex-direction: column;
@@ -1286,7 +1307,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="btn btn-primary navbar-cta">Book a Consultation</a>
+      <a href="#contact" class="btn btn-primary navbar-cta">Book a free consultation</a>
       <button class="hamburger" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
@@ -1312,7 +1333,7 @@
       <li><a href="#approach">The Therapy</a></li>
       <li><a href="#expect">FAQ</a></li>
       <li><a href="#fees">Fees</a></li>
-      <li><a href="#contact" class="btn btn-primary" style="color:#fff;">Book a Consultation</a></li>
+      <li><a href="#contact" class="btn btn-primary" style="color:#fff;">Book a free consultation</a></li>
     </ul>
   </div>
 
@@ -1326,8 +1347,8 @@
             <h1>Clarity for the journey.</h1>
             <p class="hero-subhead">Your anxiety, your relationship patterns, your career stress are connected to deeper questions about who you are and where you're going. Together, we'll work on both.</p>
             <div class="hero-cta-group">
-              <a href="#contact" class="btn btn-primary">Book a Consultation</a>
-              <a href="#specialties" class="btn btn-secondary">How I Can Help</a>
+              <a href="#contact" class="btn btn-primary" style="width: 100%;">Book a free 15-minute consultation</a>
+              <a href="#specialties" class="btn btn-secondary" style="width: 100%;">How I can help</a>
             </div>
             <div class="hero-trust">
               <span>
@@ -1419,21 +1440,32 @@
       <div class="container">
         <div class="approach-content">
           <h2 class="reveal">The Therapy</h2>
-          <p class="section-subtitle approach-subtitle reveal">To support your growth, I draw from a range of evidence-based and insight-oriented approaches.</p>
+          <p class="section-subtitle approach-subtitle reveal">Every session is shaped around you. Drawing from methods that are
+            proven to help people move forward.</p>
 
           <div class="approach-pillars">
             <div class="approach-pillar reveal">
-              <h3>Insight-Oriented Depth</h3>
-              <p>Psychodynamic and relational work to uncover the root of recurring patterns, and existential perspectives to tackle questions of meaning.</p>
+              <h3 style="text-wrap: balance;">Understanding Patterns</h3>
+              <p>
+                Through psychodynamic and relational therapy, we explore the roots of what keeps showing up in your life: in your
+                relationships, your sense of identity, and your search for meaning. The goal is lasting clarity, not just
+                surface-level
+                fixes.
+              </p>
             </div>
             <div class="approach-pillar reveal reveal-delay-1">
-              <h3>Structured Problem Solving</h3>
-              <p>Cognitive Behavioral Therapy (CBT) and solution-focused techniques to provide practical, brief interventions for
-                immediate challenges.</p>
+              <h3 style="text-wrap: balance;">Practical Tools</h3>
+              <p>
+                Using Cognitive Behavioral Therapy (CBT) and solution-focused techniques, we work on concrete strategies for the
+                challenges in front of you, all while keeping the bigger picture in view.
+              </p>
             </div>
             <div class="approach-pillar reveal reveal-delay-2">
-              <h3>Present-Moment Awareness</h3>
-              <p>Mindfulness and humanistic approaches to build your capacity for living fully in the here and now.</p>
+              <h3 style="text-wrap: balance;">Mindfulness and grounding</h3>
+              <p>
+                Building your capacity to stay present, manage difficult emotions, and move through the world with more awareness and
+                less reactivity.
+              </p>
             </div>
           </div>
         </div>
@@ -1530,7 +1562,7 @@
                 <span class="price">$150</span>
                 <span class="duration">/ 45 min</span>
               </div>
-              <p class="fees-starting">Sliding scale starting at these rates</p>
+              <p class="fees-starting">Sliding scale available as needed</p>
             </div>
             <div class="fees-service">
               <h3>Couples Therapy</h3>
@@ -1542,7 +1574,7 @@
                 <span class="price">$200</span>
                 <span class="duration">/ 45 min</span>
               </div>
-              <p class="fees-starting">Sliding scale starting at these rates</p>
+              <p class="fees-starting">Sliding scale available as needed</p>
             </div>
           </div>
 
@@ -1702,6 +1734,11 @@
 
     // --- Netlify form handling ---
     const form = document.getElementById('contact-form');
+                                                                  const overlay = document.createElement('div');
+                                                                  overlay.className = 'form-success-overlay';
+                                                                  overlay.textContent = 'Thank you — your message has been sent.';
+                                                                  form.parentElement.appendChild(overlay);
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       fetch('/', {
@@ -1711,7 +1748,9 @@
       })
       .then(res => {
         if (res.ok) {
-          form.innerHTML = '<p style="text-align:center;">Thank you — your message has been sent.</p>';
+          overlay.classList.add('visible');
+          form.reset();
+          setTimeout(() => overlay.classList.remove('visible'), 3000);
         }
       });
     });
