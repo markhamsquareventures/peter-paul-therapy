@@ -1338,15 +1338,6 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 10 3 12 0v-5"/></svg>
                 MSW, Fordham University
               </span>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                  class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-                </svg>
-
-                Accepts Insurance
-              </span>
             </div>
           </div>
           <div class="hero-image">
@@ -1437,7 +1428,8 @@
             </div>
             <div class="approach-pillar reveal reveal-delay-1">
               <h3>Structured Problem Solving</h3>
-              <p>CBT and solution-focused techniques to provide practical, brief interventions for immediate challenges.</p>
+              <p>Cognitive Behavioral Therapy (CBT) and solution-focused techniques to provide practical, brief interventions for
+                immediate challenges.</p>
             </div>
             <div class="approach-pillar reveal reveal-delay-2">
               <h3>Present-Moment Awareness</h3>
@@ -1708,23 +1700,20 @@
 
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // --- Simple form handling ---
+    // --- Netlify form handling ---
     const form = document.getElementById('contact-form');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      // TODO: Replace with actual form submission (Formspree, Netlify, etc.)
-      // For now, show a confirmation message
-      const btn = form.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = 'Message Sent — Thank You';
-      btn.disabled = true;
-      btn.style.opacity = '0.7';
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.disabled = false;
-        btn.style.opacity = '1';
-        form.reset();
-      }, 3000);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(res => {
+        if (res.ok) {
+          form.innerHTML = '<p style="text-align:center;">Thank you — your message has been sent.</p>';
+        }
+      });
     });
   </script>
 </body>
