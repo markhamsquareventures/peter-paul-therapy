@@ -6,7 +6,8 @@
 
   <!-- Primary Meta Tags -->
   <title>Peter Paul, LCSW | Anxiety &amp; Depression Therapist in NYC</title>
-  <meta name="description" content="Feeling lost or anxious? Peter Paul, LCSW offers individual and couples therapy in New York City for anxiety, depression, relationships, life transitions, and finding meaning. Book a consultation.">
+  <meta name="description"
+    content="Feeling lost or anxious? Peter Paul, LCSW offers individual and couples therapy in New York City for anxiety, depression, relationships, life transitions, and finding meaning. Book a Consultation.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" href="https://www.peterpaultherapy.com/">
@@ -14,7 +15,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Peter Paul, LCSW | Anxiety &amp; Depression Therapist in NYC">
-  <meta property="og:description" content="Individual and couples therapy for anxiety, depression, relationships, life transitions, and the bigger questions. Licensed therapist in NYC. Book a consultation.">
+  <meta property="og:description"
+    content="Individual and couples therapy for anxiety, depression, relationships, life transitions, and the bigger questions. Licensed therapist in NYC. Book a Consultation.">
   <meta property="og:url" content="https://www.peterpaultherapy.com/">
   <meta property="og:site_name" content="Peter Paul Therapy">
   <!-- Replace with actual image URL -->
@@ -683,31 +685,6 @@
     /* ============================================
        MID-CTA BANNER
        ============================================ */
-    .mid-cta {
-      background-color: var(--sage-dark);
-      padding: 64px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .mid-cta::before {
-      content: '';
-      position: absolute;
-      top: -100px;
-      left: -100px;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .mid-cta h2 {
-      color: #fff;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 500;
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-
     /* ============================================
        ABOUT
        ============================================ */
@@ -862,6 +839,98 @@
       }
       .approach-pillar:not(:last-child)::after {
         display: none;
+      }
+    }
+
+    /* ============================================
+       TESTIMONIAL
+       ============================================ */
+    .testimonial {
+      background-color: var(--sage-dark);
+      padding: 112px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .testimonial-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .testimonial-mark {
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--terracotta);
+      margin: 0 auto 36px;
+      border: 0;
+    }
+
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: -0.005em;
+      color: #fff;
+      margin: 0;
+    }
+
+    .testimonial-attribution {
+      display: block;
+      margin-top: 28px;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .testimonial-cta {
+      position: relative;
+      max-width: 720px;
+      margin: 72px auto 0;
+      padding-top: 56px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .testimonial-cta-heading {
+      color: #fff;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 500;
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial {
+        padding: 80px 0;
+      }
+      .testimonial-mark {
+        margin-bottom: 28px;
+      }
+      .testimonial-attribution {
+        margin-top: 24px;
+      }
+      .testimonial-cta {
+        margin-top: 56px;
+        padding-top: 44px;
       }
     }
 
@@ -1345,10 +1414,11 @@
         <div class="hero-content">
           <div class="hero-text">
             <h1>Clarity for the journey.</h1>
-            <p class="hero-subhead">Your anxiety, your relationship patterns, your career stress are connected to deeper questions about who you are and where you're going. Together, we'll work on both.</p>
+            <p class="hero-subhead">Your anxiety, your relationship patterns, your career stress are connected to deeper questions
+              about who you are and where you're going. Together, we'll work on all of it.</p>
             <div class="hero-cta-group">
-              <a href="#contact" class="btn btn-primary" style="width: 100%;">Book a free 15-minute consultation</a>
-              <a href="#specialties" class="btn btn-secondary" style="width: 100%;">How I can help</a>
+              <a href="#contact" class="btn btn-primary" style="width: 100%;">Book a Free 15-minute Consultation</a>
+              <a href="#specialties" class="btn btn-secondary" style="width: 100%;">How I Can Help</a>
             </div>
             <div class="hero-trust">
               <span>
@@ -1383,12 +1453,12 @@
             </div>
             <div class="specialty-body">
               <p>Anxiety that keeps you stuck in your head. Depression that makes it hard to get through the day. We'll work on
-                understanding what's behind it, building insight and practical strategies to move forward.</p>
+                understanding what's behind these hard feelings, building insight and practical strategies to move forward.</p>
             </div>
           </div>
           <div class="specialty-row reveal">
             <div class="specialty-label">
-              <h3>Relationships, Identity &amp; Self-Esteem</h3>
+              <h3>Relationships, Self-Esteem &amp; Identity</h3>
             </div>
             <div class="specialty-body">
               <p>Recurring patterns in relationships, struggles with self-worth, questions about identity. Whether you're coming in on
@@ -1408,13 +1478,6 @@
     </section>
 
     <!-- ===================== MID-CTA ===================== -->
-    <section class="mid-cta" aria-label="Call to action">
-      <div class="container">
-        <h2 class="reveal">You don't have to keep carrying this alone.</h2>
-        <a href="#contact" class="btn btn-light reveal reveal-delay-1">Book a Consultation</a>
-      </div>
-    </section>
-
     <!-- ===================== ABOUT ===================== -->
     <section class="about" id="about">
       <div class="container">
@@ -1424,8 +1487,11 @@
           </div>
           <div class="about-text">
             <h2 class="reveal">About Peter</h2>
-            <p class="reveal">My background is in education, philosophy, and comparative religion. Not the typical path into therapy, but it means I take the bigger questions about your life as seriously as the day-to-day struggles.</p>
-            <p class="reveal">I have my MSW from Fordham and five years of clinical experience. When you sit with me, you'll find someone who listens more than they talk, asks real questions, and doesn't pretend to have all the answers. We figure it out together.</p>
+            <p class="reveal">My background is in education, philosophy, and comparative religion. Not the typical path into
+              therapy, but it means I take the day-to-day struggles as seriously as the bigger questions about your life.</p>
+            <p class="reveal">I have my Masters in Social Work (MSW) from Fordham and five years of clinical experience. When you
+              are in a session with me, you'll find someone who listens more than they talk, asks real questions, and doesn't
+              pretend to have all the answers. We figure it out together.</p>
             <div class="credential-badge reveal">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               Licensed Clinical Social Worker &middot; LCSW &middot; New York State
@@ -1456,7 +1522,8 @@
             <div class="approach-pillar reveal reveal-delay-1">
               <h3 style="text-wrap: balance;">Practical Tools</h3>
               <p>
-                Using Cognitive Behavioral Therapy (CBT) and solution-focused techniques, we work on concrete strategies for the
+                Using Cognitive Behavioral Therapy (CBT), Acceptance and Commitment Therapy (ACT), and solution-focused techniques, we
+                work on concrete strategies for the
                 challenges in front of you, all while keeping the bigger picture in view.
               </p>
             </div>
@@ -1468,6 +1535,23 @@
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIAL + CTA ===================== -->
+    <section class="testimonial" aria-label="Client testimonial and call to action">
+      <div class="container">
+        <figure class="testimonial-inner">
+          <hr class="testimonial-mark reveal" aria-hidden="true">
+          <blockquote class="testimonial-quote reveal reveal-delay-1">
+            &ldquo;Peter took the time to deeply understand my past and the root causes of my anxiety, showing up consistently and with real care throughout the process. Through his patient, tailored approach, he helped me build a practical framework that has genuinely changed how I carry myself, allowing me to be more confident, outgoing, and at ease.&rdquo;
+          </blockquote>
+          <figcaption class="testimonial-attribution reveal reveal-delay-2">Client</figcaption>
+        </figure>
+        <div class="testimonial-cta">
+          <h2 class="testimonial-cta-heading reveal">You don't have to keep carrying this alone.</h2>
+          <a href="#contact" class="btn btn-light reveal reveal-delay-1">Book a Consultation</a>
         </div>
       </div>
     </section>
@@ -1562,7 +1646,8 @@
                 <span class="price">$150</span>
                 <span class="duration">/ 45 min</span>
               </div>
-              <p class="fees-starting">Sliding scale available as needed</p>
+              <p class="fees-starting">These are starting out-of-pocket rates, subject to change with Insurance. Sliding scale
+                available as needed</p>
             </div>
             <div class="fees-service">
               <h3>Couples Therapy</h3>
@@ -1574,7 +1659,8 @@
                 <span class="price">$200</span>
                 <span class="duration">/ 45 min</span>
               </div>
-              <p class="fees-starting">Sliding scale available as needed</p>
+              <p class="fees-starting">These are starting out-of-pocket rates, subject to change with Insurance. Sliding scale
+                available as needed</p>
             </div>
           </div>
 
@@ -1585,7 +1671,8 @@
             </div>
             <div class="fees-detail-row">
               <dt>Out-of-Network</dt>
-              <dd>I can provide a superbill for potential reimbursement from your insurer.</dd>
+              <dd>I can provide a superbill (an itemized invoice covering the past three to six months of sessions) for potential
+                reimbursement from your insurer.</dd>
             </div>
           </dl>
           <p class="fees-note reveal">Free consultations available. No commitment, no pressure.</p>
@@ -1632,7 +1719,7 @@
 
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <p>Telehealth sessions available<br>throughout New York State</p>
+              <p>Telehealth sessions available for clients <br>located throughout New York State</p>
             </div>
 
             <div class="contact-info-item">
