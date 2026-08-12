@@ -901,6 +901,53 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
+    /* Carousel */
+    .testimonial-carousel {
+      position: relative;
+    }
+    .testimonial-track {
+      display: grid;
+    }
+    .testimonial-slide {
+      grid-area: 1 / 1;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    .testimonial-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+    .testimonial-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.28);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .testimonial-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .testimonial-dot.is-active {
+      background: var(--terracotta);
+      transform: scale(1.15);
+    }
+    .testimonial-dot:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+
     .testimonial-cta {
       position: relative;
       max-width: 720px;
@@ -1544,10 +1591,33 @@
       <div class="container">
         <figure class="testimonial-inner">
           <hr class="testimonial-mark reveal" aria-hidden="true">
-          <blockquote class="testimonial-quote reveal reveal-delay-1">
-            &ldquo;Peter took the time to deeply understand my past and the root causes of my anxiety, showing up consistently and with real care throughout the process. Through his patient, tailored approach, he helped me build a practical framework that has genuinely changed how I carry myself, allowing me to be more confident, outgoing, and at ease.&rdquo;
-          </blockquote>
-          <figcaption class="testimonial-attribution reveal reveal-delay-2">Client</figcaption>
+          <div class="testimonial-carousel reveal reveal-delay-1">
+            <div class="testimonial-track">
+              <div class="testimonial-slide is-active">
+                <blockquote class="testimonial-quote">
+                  &ldquo;Peter took the time to deeply understand my past and the root causes of my anxiety, showing up consistently and with real care throughout the process. Through his patient, tailored approach, he helped me build a practical framework that has genuinely changed how I carry myself, allowing me to be more confident, outgoing, and at ease.&rdquo;
+                </blockquote>
+                <figcaption class="testimonial-attribution">Client</figcaption>
+              </div>
+              <div class="testimonial-slide">
+                <blockquote class="testimonial-quote">
+                  &ldquo;While I was initially nervous going to therapy for the first time, Peter created a comfortable environment in which I could talk about my life and share my feelings. Peter helped me work through a period of extreme anxiety and to develop mechanisms I could use moving forward. I truly appreciated my work with Peter and would absolutely recommend him to anyone looking for a therapist.&rdquo;
+                </blockquote>
+                <figcaption class="testimonial-attribution">Client</figcaption>
+              </div>
+              <div class="testimonial-slide">
+                <blockquote class="testimonial-quote">
+                  &ldquo;I could not recommend Peter Paul more highly. When we started our sessions, I had debilitating anxiety, relationship trauma and was struggling to navigate major life transitions. Working with Peter gave me the confidence and self-awareness to grow and manage my anxiety more effectively. He&rsquo;s patient, kind, and created a space where I felt comfortable being honest and vulnerable from the get-go.&rdquo;
+                </blockquote>
+                <figcaption class="testimonial-attribution">Client</figcaption>
+              </div>
+            </div>
+            <div class="testimonial-dots" role="tablist" aria-label="Client testimonials">
+              <button type="button" class="testimonial-dot is-active" role="tab" aria-selected="true" aria-label="Testimonial 1"></button>
+              <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Testimonial 2" tabindex="-1"></button>
+              <button type="button" class="testimonial-dot" role="tab" aria-selected="false" aria-label="Testimonial 3" tabindex="-1"></button>
+            </div>
+          </div>
         </figure>
         <div class="testimonial-cta">
           <h2 class="testimonial-cta-heading reveal">You don't have to keep carrying this alone.</h2>
@@ -1639,6 +1709,18 @@
             <div class="fees-service">
               <h3>Individual Therapy</h3>
               <div class="fees-rate">
+                <span class="price">$175</span>
+                <span class="duration">/ 60 min</span>
+              </div>
+              <div class="fees-rate">
+                <span class="price">$125</span>
+                <span class="duration">/ 45 min</span>
+              </div>
+              <p class="fees-starting">Sliding scale starting at these rates.</p>
+            </div>
+            <div class="fees-service">
+              <h3>Couples Therapy</h3>
+              <div class="fees-rate">
                 <span class="price">$200</span>
                 <span class="duration">/ 60 min</span>
               </div>
@@ -1646,28 +1728,14 @@
                 <span class="price">$150</span>
                 <span class="duration">/ 45 min</span>
               </div>
-              <p class="fees-starting">These are starting out-of-pocket rates, subject to change with Insurance. Sliding scale
-                available as needed</p>
-            </div>
-            <div class="fees-service">
-              <h3>Couples Therapy</h3>
-              <div class="fees-rate">
-                <span class="price">$250</span>
-                <span class="duration">/ 60 min</span>
-              </div>
-              <div class="fees-rate">
-                <span class="price">$200</span>
-                <span class="duration">/ 45 min</span>
-              </div>
-              <p class="fees-starting">These are starting out-of-pocket rates, subject to change with Insurance. Sliding scale
-                available as needed</p>
+              <p class="fees-starting">Sliding scale starting at these rates.</p>
             </div>
           </div>
 
           <dl class="fees-details reveal">
             <div class="fees-detail-row">
               <dt>Insurance</dt>
-              <dd>Accepted via Alma: Aetna, Cigna. Anthem / Blue Cross Blue Shield coming soon.</dd>
+              <dd>Accepted via Alma: Aetna, Cigna. Anthem / Blue Cross Blue Shield</dd>
             </div>
             <div class="fees-detail-row">
               <dt>Out-of-Network</dt>
@@ -1818,6 +1886,46 @@
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // --- Testimonial carousel ---
+    (function () {
+      const carousel = document.querySelector('.testimonial-carousel');
+      if (!carousel) return;
+      const slides = Array.from(carousel.querySelectorAll('.testimonial-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.testimonial-dot'));
+      if (slides.length < 2) return;
+
+      let current = 0;
+      let timer = null;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function show(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+        dots.forEach((d, i) => {
+          const active = i === current;
+          d.classList.toggle('is-active', active);
+          d.setAttribute('aria-selected', active ? 'true' : 'false');
+          d.tabIndex = active ? 0 : -1;
+        });
+      }
+
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function start() {
+        if (reduceMotion) return;
+        stop();
+        timer = setInterval(() => show(current + 1), 7000);
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { show(i); start(); });
+      });
+      carousel.addEventListener('mouseenter', stop);
+      carousel.addEventListener('mouseleave', start);
+
+      show(0);
+      start();
+    })();
 
     // --- Netlify form handling ---
     const form = document.getElementById('contact-form');
